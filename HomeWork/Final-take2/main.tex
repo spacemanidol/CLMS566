@@ -1,0 +1,200 @@
+\documentclass[12pt]{article}
+\usepackage{longtable}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots,multicol}
+\usepackage{longtable}
+\usepackage{tikz-qtree}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{avm}
+\usepackage{rtrees}
+\usepackage{forest}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\useforestlibrary{linguistics}
+\newcommand{\comment}[1]{}
+\newcommand{\myavm}[5]{
+    \begin{avm}
+        \ifboolexpr{
+            test{\ifstrempty{#2}}
+            and
+            test{\ifstrempty{#3}}
+            and
+            test{\ifstrempty{#4}}
+            and
+            test{\ifstrempty{#5}}
+        }
+        {#1}
+        {
+            \avml
+            \hfil #1 \hfil \\
+            \[
+                \ifstrempty{#2}{}{SPR       & \< #2 \> \\}
+                \ifstrempty{#3}{}{COMPS     & \< #3 \> \\}
+                \ifstrempty{#4}{}{GAP       & \< #4 \> \\}
+                \ifstrempty{#5}{}{STOP-GAP  & \< #5 \> \\}
+            \]
+            \avmr
+        }
+    \end{avm}
+}
+\forestapplylibrarydefaults{linguistics}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = red, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+\pgfplotsset{compat=newest} 
+\mathchardef\period=\mathcode`.
+\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+\newcommand{\textarray}[1]{\ensuremath{\left[ \mbox{\ttfamily\begin{tabular}{l} #1 \end{tabular}}\right]}}
+\begin{document}
+\title{566 Final }
+\author{Daniel Campos  \tt {dacampos@uw.edu}}
+\date{12/17/2020}
+\maketitle 
+\section{Problem 1}
+Those formulas, scientists expect to be simple to derive and to apply.
+\subsection{Tree}
+\scalebox{.5}{
+\begin{forest}
+[ \myavm{S}{}{}{}{} 
+    [ \myavm{{\@2}$NP_i$}{}{}{}{} 
+        [ \myavm{{\@1}DP}{}{}{}{} 
+            [Those] 
+        ] 
+        [ \myavm{$N_i$}{{\@1}}{}{}{} 
+            [formulas]
+        ]
+    ]  
+    [ \myavm{S}{}{}{\@2}{\@2} 
+        [  \myavm{{\@3}NP}{}{}{}{} 
+            [  \myavm{{}N}{DP}{}{}{} 
+                [scientist]
+            ]
+        ]
+        [\myavm{{}VP}{\@3}{\@2}{}{}
+            [ \myavm{{}V}{\@3}{\@4}{\@2}{}
+                [expect]
+            ]
+            [ \myavm{{\@4}VP}{\@2}{}{}{} 
+                [ \myavm{{}V}{\@2}{\@5}{}{} 
+                    [to]
+                ]
+                [ \myavm{{\@5}VP}{\@2}{}{}{}
+                    [ \myavm{{}V}{\@2}{\@6}{}{} 
+                        [be]
+                    ]
+                    [ \myavm{{\@6}AP}{\@2}{}{}{}
+                        [ \myavm{{}A}{$\@2_i$}{\@7}{}{$\@8_i$}
+                            [simple]
+                        ]
+                        [ \myavm{{\@7}VP}{\@9}{}{$\@8_i$}{}
+                            [ \myavm{{}VP}{\@9}{}{$\@8_i$}{}
+                                [ \myavm{{}V}{\@9}{\@{10}}{}{} 
+                                    [to]
+                                ]
+                                [ \myavm{{\@{10}}V}{\@9 NP}{}{$\@8_i$}{}
+                                    [derive]
+                                ]
+                            ]
+                       [\myavm{{}CONJ}{}{}{}{}
+                                [and]
+                            ]
+                        [ \myavm{{}VP}{\@9}{}{$\@8_i$}{}
+                            [ \myavm{{}V}{\@9}{\@{11}}{}{}
+                                    [to]
+                            ]
+                            [ \myavm{{\@{11}}V}{\@9 NP}{}{$\@8_i$}{}
+                                    [apply]
+                                ]
+                            ]
+                        
+                        ]
+                    
+                    ]
+                ]  
+            ]
+        ]
+    ]
+]
+\end{forest} }
+\subsection{Identity Cascades}
+To save space I will use the following abbreviations:
+Head Compliment Rule(HCR), Head Specifier Rule(HSR), Semantic Inheritance Principle(SIP), Argument Realization principle(ARP), Valence Principle(VP), Head Filler Rule(HFR), Coordination Rule (CR) \\
+\\ \\ \\
+\begin{tiny}
+\begin{footnotesize}
+\begin{longtable}{|l|l|l|}
+\hline
+Grammar entity & 1st member of identity & 2nd member of identity \\ \hline
+1. Lexical entry for formula & The INDEX value of N {\it formulas}  & the INST value of the {\it formulas} predication\\ \hline
+2. SIP & The INDEX value of N {\it formulas}  & \makecell{The INDEX value of the NP \\ dominating {\it those formulas}} \\ \hline
+3. HFR & The NP Dominating {\it those formulas} & \makecell{The sole element on the GAP \\list of the S dominating \\{\it scientists expect to } \\{\it be simple to derive and to apply}}  \\ \hline
+4. GAP Principle & \makecell{The sole element on the \\ GAP list of the S \\ dominating {\it scientists expect to} \\{\it be simple to derive and to apply}} & \makecell{The sole element on the GAP list of the \\ VP dominating {\it expect to be} \\{\it simple to derive and to apply}} \\ \hline
+5. GAP Principle & \makecell{The sole element on the GAP list of \\ the VP dominating {\it expect to} \\{\it be simple to derive and to apply}}  & \makecell{ The sole element on the \\ GAP list of the V {\it expect}} \\ \hline
+6. ARP & \makecell{the sole element on the GAP \\ list for the V \\{\it expect}} & \makecell{The second value on the ARG-ST\\ for the V {\it expect}} \\ \hline
+7. Lexical entry for {\it expect} & \makecell{The second value on the \\ARG-ST for the V {\it expect}} & \makecell{The sole element on \\ the SPR list of the 3rd element \\ on the ARG-ST for the V {\it expect}} \\ \hline
+8. HCR & \makecell{The sole element on the COMPS\\ list of the V {\it expect}} & \makecell{The VP dominating\\ {\it to be simple to} \\{\it derive and to apply}} \\ \hline
+9. VP and HCR & \makecell{The sole element on \\ the SPR list of the VP \\ dominating {\it to be simple} \\{\it to derive and to apply}}  & \makecell{The sole element on \\ the SPR list of \\ the V {\it to}} \\ \hline
+10. ARP &   \makecell{The sole element on the SPR \\ list of the V\\ {\it to}} &  \makecell{The first element on the\\ ARG-ST of the V {\it to}} \\ \hline
+11. Lexical entry for to&   \makecell{The first element on the ARG-ST\\ of the V {\it to}} &  \makecell{The sole element on \\the SPR list of the 2nd element\\ on the ARG-ST of the V {\it to}} \\ \hline
+12. ARP &  \makecell{The second element on \\the ARG-ST of the V\\ {\it to}} &  \makecell{The sole element \\on the COMPS list \\of the V {\it to}}\\ \hline
+13. HCR &  \makecell{The sole element on the \\ COMPS list of the \\ V {\it to}} &  \makecell{The VP dominating \\{\it be simple to} {\it derive and apply}} \\ \hline
+14. VP and HCR &  \makecell{The sole element on \\ the SPR list of the VP \\ dominating {\it be simple} \\{\it to derive and to apply}} &  \makecell{The sole element on the \\ SPR list of the \\ V {\it be}} \\ \hline
+15. ARP &  \makecell{The sole element on the SPR\\ list of the V\\ {\it be}} &  \makecell{The first element on \\ the ARG-ST of the \\ V {\it be}} \\ \hline
+16. Lexical entry for be &  \makecell{The first element on the \\V {\it be}} &  \makecell{The sole element on the\\ SPR list of the 2nd \\element on the ARG-ST of \\the V {\it be} } \\ \hline
+17. ARP &  \makecell{The second element on the \\ ARG-ST of the V \\{\it be}} &  \makecell{The sole element on the \\ comps list of the V {\it be}} \\ \hline
+18. HCR &  \makecell{The sole element on the COMPS \\ list of the V \\{\it be}} &  \makecell{The AP dominating \\ {\it simple to} \\{\it derive and to apply}}  \\ \hline
+19. GAP Principle & \makecell{The sole element on the GAP list \\ of the AP dominating\\ {\it simple to derive and to apply}} & \makecell{The sole element on the \\ STOP-GAP list of the A dominating {\it simple}} \\ \hline
+19. VP and HCR &  \makecell{The sole element on  \\ the SPR list of the \\ A dominating {\it simple}} &  \makecell{The sole element on the SPR\\ list of the a {\it simple}} \\ \hline
+20. ARP & \makecell{The sole element on the \\ SPR list of the a\\ {\it simple}} & \makecell{The index of the first \\element on the ARG-ST of \\the A {\it simple}}  \\ \hline
+21. Lexical Entry for simple & \makecell{The index of the first element\\ on the ARG-ST of the \\ A {\it simple}} & \makecell{The index of the 1st element on \\ the GAP list of the 2nd element \\ of the ARG-ST of the A {\it simple}} \\ \hline
+22. ARP & \makecell{The 2nd element of the ARG-ST \\ of the A {\it simple}} &  \makecell{The sole element \\ on the COMPS list of A {\it simple}} \\ \hline
+23. HCR & \makecell{The sole element on the \\ COMPS list of A {\it simple}} & \makecell{The VP  dominating\\ {\it to derive and to apply}} \\ \hline
+24. GAP Principle & \makecell{The sole element on the GAP list \\ of the VP dominating\\ {\it to derive and to apply}} & \makecell{The sole element on the \\ GAP list of the VP dominating {\it to derive}} \\ \hline
+25. GAP Principle & \makecell{The sole element on the \\ GAP list of the VP dominating \\ {\it to derive}} & \makecell{The sole element \\on the GAP list of the V \\dominating {\it derive}} \\ \hline
+26. ARP & \makecell{The sole element of \\the GAP list of the \\V {\it derive}} & \makecell{The second element \\of the ARG-ST of the\\ V {\it derive}} \\ \hline
+27. Lexical entry for derive & \makecell{INDEX value of the second \\ element of the ARG-ST of the \\ V derive} & \makecell{DERIVED value of the derive predication} \\ \hline
+
+
+
+
+\end{longtable}
+\end{footnotesize}
+\end{tiny}
+\section{Problem 2}
+We hoped that it would surprise Leslie that Kim sang, but it didn't
+\subsection{Lexical rules}
+\begin{longtable}{|l|l|l|}
+\hline
+Word & 1st lexical Rule & 2nd lexical rule (if appropriate)  \\ \hline
+We & Constant Lexeme Lexical Rule &\\ \hline
+hoped & Passive Lexical Rule & Past-Tense Verb Lexical Rule \\ \hline
+that & Constant Lexeme Lexical Rule & \\ \hline
+it & Constant Lexeme Lexical Rule & \\ \hline
+would & Passive Lexical Rule & \\ \hline
+surprise & Base Form Lexical Rule & \\ \hline
+Leslie & Constant Lexeme Lexical Rule& \\ \hline
+that &Constant Lexeme Lexical Rule & \\ \hline
+Kim &Constant Lexeme Lexical Rule & \\ \hline
+Sang & Past Tense Verb Lexical Rule & Extraposition Lexical Rule \\ \hline
+but & Constant Lexeme Lexical Rule & \\ \hline
+it &  Constant Lexeme Lexical Rule& \\ \hline
+didn't & Non-3rd-Singular Verb Lexical rule & contraction lexical rule \\ \hline
+\end{longtable}
+
+\subsection{Word Structure for didn't}
+\begin{avm}
+ \[{\it word} \\SYN & \[ HEAD & \[{\it verb} \\ FORM & {\it fin} \\ AUX & +\\ PRED & - \\ INF & - \\ POL & + \\ AGR & \@2{\it non-3sing}\] \\ VAL & \[SPR & \< \avml {\@1}\avmr \>  \\ COMPS & \<\ {\@3} \avml \hfil \avmr \>  \\ MOD & \< \avml  \hfil \avmr \>\] \\ GAP & \< \avml \hfil \avmr \>\\ STOP-GAP & \< \avml \hfil \avmr \>\]  \\ ARG-ST & \< \avml {\@1}\[HEAD & \[{\it nominal} \\ CASE & {\it nom} \\ AGR & \@2 \]  \\ VAL & \[ SPR & \< \avml \hfil \avmr \>  \\ COMPS & \< \avml \hfil \avmr \> \] \] , {\@3}\[SYN & \[HEAD & \[{\it verb} \\ FORM & base \\ INF & -\] \\ SPR & \< \avml \@1 \avmr \> \\ COMPS & \< \avml \hfil \avmr \>    \] \\ SEM & \[INDEX & s_2}\]  \]   \avmr \> \\ SEM & \[MODE & {\it prop} \\ INDEX & s_3 \\ RESTR & \< \avml \[RELN & \textbf{not}\\ SIT & s_3 \\ ARG & s_1 \] \avmr \> , \< \avml \[RELN & \textbf{did} \\ SIT & s_1 \\ ARG & s_2  \] \avmr \>  \] \\  \]
+\end{avm}
+\end{document}

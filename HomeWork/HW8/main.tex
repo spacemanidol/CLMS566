@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots,multicol}
+\usepackage{tikz-qtree}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{avm}
+\usepackage{rtrees}
+\usepackage{forest}
+\useforestlibrary{linguistics}
+\newcommand{\comment}[1]{}
+\forestapplylibrarydefaults{linguistics}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = red, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+\pgfplotsset{compat=newest} 
+\mathchardef\period=\mathcode`.
+\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+\newcommand{\textarray}[1]{\ensuremath{\left[ \mbox{\ttfamily\begin{tabular}{l} #1 \end{tabular}}\right]}}
+\begin{document}
+\title{566 HW8}
+\author{Daniel Campos  \tt {dacampos@uw.edu}}
+\date{12/4/2019}
+\maketitle 
+\section{Chapter 14, Problem 1}
+\scalebox{.85}{
+\begin{forest}
+[ S  \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}  [ \begin{avm} \[ {\@1} NP \\ \[GAP & \< \avml \hfill \avmr \> \] \] \end{avm} [DP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}[This]] [NOM \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}[baby]]] [S \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \\ STOP-GAP & \< \avml {\@1} \avmr \> \] \end{avm}[NP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [I] ] [VP \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm} [V \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}  [know]] [CP \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm}  [ C \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}  [that]] [S \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm}  [NP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}  [ they]] [VP \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm}  [V \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [handed]] [NP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}  [DP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [a]] [NOM \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}  [toy]]] [PP \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm}  [to]]]]]]]]
+\end{forest} }
+\section{Chapter 14, Problem 3}
+\subsection{Lexical Sequence for likes before Extraction Lexical Rule}
+\begin{avm}
+\< likes , \[{\it word} \\SYN & \[ HEAD & \[{\it verb} \\ FORM & {\it fin} \\ PRED & - \\INF & - \\ AUX & - \\ PO & -\\AGR {\@3}{\it 3sing}\] \\ VAL & \[SPR & \< \avml {\@1}NP_i \[HEAD & \[{\it nominal}\\CASE & {\it nom} \\ AGR & {\@3} \] \] \avmr \> \\ COMPS & \< \avml {\@2}NP_j \[HEAD & \[{\it nominal}\\CASE & {\it acc} \] \] \avmr \> \] \\ GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \\ SEM & \[MODE & {\it prop} \\ INDEX & s \\ RESTR & \< \avml \[RELN & like \\ SIT & s \\ LIKER & i \\ LIKED & j \] \avmr \> \] \\ ARG-ST & \< \avml {\@1} , {\@2}  \avmr \> \] \>
+\end{avm}
+\subsection{Lexical sequence after Extraction Lexical Rule }
+\begin{avm}
+\< likes , \[{\it word} \\SYN & \[ HEAD & \[{\it verb} \\ FORM & {\it fin}\\ PRED & - \\INF & - \\ AUX & - \\ PO & -\\AGR {\@3}{\it 3sing} \] \\ VAL & \[SPR & \< \avml \hfill \avmr \> \\ COMPS & \< \avml {\@2}NP_j \[HEAD & \[{\it nominal}\\CASE & {\it acc} \] \] \avmr \> \] \\ GAP & \< \avml {\@1}NP_i \[HEAD & \[CASE & {\it nom} \\ AGR & {\@3} \] \] \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \\ SEM & \[MODE & {\it prop} \\ INDEX & s \\ RESTR & \< \avml \[RELN & like \\ SIT & s \\ LIKER & i \\ LIKED & j \] \avmr \> \] \\ ARG-ST & \< \avml {\@1} , {\@2}  \avmr \> \] \>
+\end{avm}
+\subsection{Tree for 47b}
+\scalebox{.85}{
+\begin{forest}
+[S \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [\begin{avm}\[NP {\@1} \\ \[GAP & \< \avml \hfill \avmr \> \] \]\end{avm} [DP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [that]] [NOM \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [candidate]]] [S \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \\STOP-GAP & \< \avml {\@1} \avmr \> \] \end{avm}[NP \\\begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [I]] [VP \\\begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm}  [V \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm}[think]] [S \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm} [V \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \] \end{avm} [likes]] [NP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \] \end{avm} [oysters on the half shell , roof] ] ] ] ] ]
+\end{forest} }
+\subsection{Grammars prediction of contrasts between 47b and i}
+The grammar correctly predicts a distinction between 47b and i and correctly predicts i as ungrammatical because in i, the AGR values of those does not agree with likes. {\it Those candidates} is non 3sing and {\it likes} is 3sing. Since they do not agree the sentence cannot be licensed as grammatical. The example i is ungrammatical because: \\
+1. The SHAC as specified in inf-lxm requires that the element on the SPR list of a verb agree with it(including its AGR).\\
+2. Constraint mentioned above applies after the element moves from SPR to GAP because of the Subject Extraction Lexical Rule.
+3. Based on this {\it those candidates}(from example i) and {\it that candidate}(from 47b) compose the NP that is the element in the GAP list of {\it likes}. As a result 47b has agreement and i does not. 
+\section{Chapter 14, Problem 5}
+\subsection{Which NP is interpreted as the filler for gap in i and ii}
+For sentence i) the NP above {\it my friends on the east coast} serves as the filler for the gap after {\it talk to} and the NP above {\it problems this involved} serves as the filler for the gap after about. \\
+For sentence ii) the NP above {\it these sonatas} is serves as the filler for the gap following {\it easy to play} and the NP above {\it violins this well crafted} serves as the filler for the gap after {\it on}.
+\subsection{Tree for: Problems this involved, my friends on the east coast are hard to talk to  about  }
+\scalebox{.6}{
+\begin{forest} 
+[S \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [NP \\ \begin{avm} {\@2} \[GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \>\] \end{avm} [Problems this involved, roof]] [S \\ \begin{avm} \[GAP & \< \avml {\@2} \avmr \> \\ STOP-GAP & \< \avml {\@2} \avmr \> \] \end{avm} [NP \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [my friends on the east coast , roof]] [VP \\ \begin{avm} \[GAP & \< \avml {\@2} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [V \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \>\] \end{avm} [are]] [AP \\ \begin{avm} \[GAP & \< \avml {\@2} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [A \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml NP_i {\@1} \avmr \> \] \end{avm}[hard]] [VP \\ \begin{avm} \[GAP & \< \avml{\@1}  {\@2} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [P \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \>\] \end{avm}[to]] [VP \\ \begin{avm} \[GAP & \< \avml {\@1} {\@2} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [V \\ \begin{avm} \[GAP & \< \avml \hfill \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [talk]] [PP \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \>\] \end{avm}[V \\ \begin{avm} \[GAP & \< \avml {\@1} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm}[to]]] [PP \\ \begin{avm} \[GAP & \< \avml {\@2} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [P \\ \begin{avm} \[GAP & \< \avml {\@2} \avmr \> \\ STOP-GAP & \< \avml \hfill \avmr \> \] \end{avm} [about]]]]]]]]]
+\end{forest}}
+\subsection{Is predicted by analysis of LDD?}
+Yes these semantics are predicted by our LDD analysis. The two sentences are identical except the order of {\it to} and {\it about} are switched. This switch will result in switing the order the gap elements tagged 1 and 2 in tree above. In the second phrase, the element on the GAP of About comes first and will end up being the same as the STOP-GAP of hard which is coindexed with {\it my friends on the East Coast}. Similarly the GAP of {\it to} comes all the way ip the tree to be identified with {\it problems this involved.}
+\end{document}

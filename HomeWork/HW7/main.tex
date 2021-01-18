@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots,multicol}
+\usepackage{tikz-qtree}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{avm}
+\usepackage{amsmath}
+\usepackage{rtrees}
+\usepackage{forest}
+\useforestlibrary{linguistics}
+\newcommand{\comment}[1]{}
+\forestapplylibrarydefaults{linguistics}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = red, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+\pgfplotsset{compat=newest} 
+\mathchardef\period=\mathcode`.
+\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+\newcommand{\textarray}[1]{\ensuremath{\left[ \mbox{\ttfamily\begin{tabular}{l} #1 \end{tabular}}\right]}}
+\begin{document}
+\title{566 HW7}
+\author{Daniel Campos  \tt {dacampos@uw.edu}}
+\date{11/22/2019}
+\maketitle 
+\section{Chapter 12, Problem 6}
+\subsection{Lexical type of there-taking be?}
+object-raising-verb-lxm
+\subsection{Type rewritten to make it defeasible.}
+\begin{avm}
+\[ARG-ST & \< \avml NP, {\@1}, \[SPR & \< \avml {\@1} \avmr \> \\COMPS & \< \avml \hfill \avmr \> \\INDEX & {\it s}\] \avmr \> \\ SEM & \[RESTR & / \< \avml \[ARG & {\it s}\] \avmr \>  \] \]
+\end{avm} \\  To make the object-raising-verb-lxm work we only need to make the existing lexemes REST values defeasible to allow it to take either an empty RESTR list or the previously defined \begin{avm}\[ARG & {\it s}\]\end{avm}
+\subsection{Lexical entry for there-taking be}
+The object-raising-verb-lxm from the previous section constrains the INVED value of the last element on the AGR-ST to S which is restated below to ensure it is clear that it is the same index as the index which represents the be lexeme.
+\begin{avm}
+\< be , \[{\it object-raising-verb-lxm} \\ ARG-ST & \< \avml [FORM & {\it there}\], X, \[PRED & + \\INDEX  & S \]  \avmr \\ SEM & \[INDEX & s \\ RESTR & \< \avml \hfill \avmr \> \] \] \>
+\end{avm}
+\section{Chapter 12, Problem 8}
+\subsection{Does analysis of expect and persuade interact with Binding principle to make right prediction of i-iv}
+At a basic level we evaluate these sentences to see if their AGR-ST follow the binding principles.
+i) Is correctly predicted as grammatical. We and us are coindexed but we does not outrank us so Principle B of the Binding Theory is satisfied. Since we is on the SPR list of the VP while us is only on the COMPS list of examine and because of the Head Complement rule we know the COMPS of VP is empty(meaning us is not passed up. In other words, these two elements are nave on the same AGR-ST list  In the arg structure of expect there is we, the doctor, and examine.  \\
+ii) Is correctly predicted as nongrammatical. Ourselves is not outranked by a coindexed element and thus fails Principle A of Binding Theory. \\
+iii) Is correctly predicted as grammatical. This is because {\it them} precedes {\it themselves} on the AGR-ST of examine and the words are coindexed. {\it Them} outranks {\it themselves} which satisfies Principle A of Binding Theory. \\
+iv) Is correctly predicted as nongrammatical. Them is coindexed with another item non anaphoraic noun failing Principle B of thee Anaphoric Agreement Principle.
+\subsection{Prediction of v-viii?}
+v) Is correctly predicted as grammatical. The reasons are identical to example i) and the agr structure of persuade will contain: We, doctor and examine. \\
+vi) Is correctly predicted as nongrammatical. Reasons are identical to ii): The anaphoraic ourselves is not coindexed with another element which makes it fail the Anaphoric Agreement Principle \\
+vii) Is correctly predicted as grammatical. Themselves is coindexed with them which outranks it satisfying the Anaphoric Agreement Principle. In other words, them is the second element on the AGR-ST list of persuade via the inherited constrains of the ocv-lxm and it is conindexed with the sole element of the SPR list(which is the third item in the AGR-ST).
+viii) Is correctly predicted as nongrammatical. The noun them is correferenced with another non anaphoric noun which out ranks it failing the Anaphoric Agreement Principle. \\
+\subsection{Using binding data which argument of appear is identified with the subject of support in ix-x.}
+They of appeared is identified with the subject of support. 
+\subsection{Using binding data which argument of appeal is identified with the subject of support in xi-xii.}
+Us is identified as the subject of support since they and themselves don't act like they are in the same arg structure.
+\section{Chapter 13, Problem 3}
+\subsection{Tree for:Did Pat put the ice cream in the freezer?}
+\scalebox{.65}{
+\begin{turn}{0}
+\begin{forest}
+[S [V \\ \begin{avm}\[ {\it word} \\ SYN & \[HEAD & \[{\it verb} \\FORM & fin \\ AUX & + \\ PRED & - \\ INF & - \\ POL & - \\ INV & + \\AGR & {\@3}{\it 3sing} \] \\ VAL & \[SPR & \< \avml \hfill \avmr \> \\ COMPS & \< \avml {\@1}  {\@2} \avmr \>  \\MOD & \< \avml \hfill \avmr \> \] \] \\ AGR-ST & \< \avml {\@1} NP \[{\it nominal} \\ HEAD & \[AGR & {\@3} \\ CASE & {\it nom} \] \\ VAL & \[SPR & \< \avml \hfill \avmr \> \\ COMPS & \< \avml \hfill \avmr \> \] \] \, {\@2} VP \[SYN & \[HEAD & \[{\it verb} \\ FORM & {\it base} \\ AUX & - \] \\ VAL & \[SPR & \< \avml {\@1} \avmr \> \\COMPS & \< \avml \hfill \avmr \> \] \] \] \avmr \>  \\ SEM & \[MODE & {\it ques} \\ INDEX & {\it s} \\ RESTR & \< \avml .. \avmr \> \] \]\end{avm}[Did]] [\begin{avm}{\@1}NP\end{avm} [Pat]] [\begin{avm}{\@2}VP\end{avm} [V [put]] [NP [D [the]] [NOM [ice cream]]] [PP [P [in]] [DP [D [the]] [NOM [freezer]]]]]]
+\end{forest} \end{turn} }
+\subsection{Tree for:Is there a monster in Loch Ness?}
+\scalebox{.7}{
+\begin{turn}{0}
+\begin{forest}
+[S [V \\ \begin{avm}\[{\it word} \\ SYN & \[HEAD & \[{\it verb}\\ FORM & fin \\ POL & - \\ INV & +\\ AUX & + \\ PRED & - \\ INF & - \\ AGR & {\@0} \] \\ VAL & \[SPR & \< \avml \hfill \avmr \> \\ COMPS & \< \avml {\@1}  {\@2}  {\@3} \avmr \> \] \] \\ AGR-ST & \< \avml {\@1}NP\[HEAD & \[FORM & {\it there} \\ CASE & {\it nom} \\ AGR & {\@0} \]\\VAL & \[SPR & \< \avml \hfil \avmr \> \\ COMPS & & \< \avml \hfil \avmr \> \] \]. {\@2}. {\@3}\[HEAD & \[PRED & +\]\\VAL & \[ SPR & \< \avml {\@2} \avmr \> \\ COMPS & \< \avml \hfil \avmr \>\] \] \avmr \> \\ SEM & \[MODE & {\it ques} \\ INDEX & {\it s} \\ RESTR & \< \avml ... \avmr \> \] \]\end{avm}[Is]] [\begin{avm}{\@1}NP\end{avm} [there]] [\begin{avm}{\@2}NP\end{avm} [D [a]] [NOM [monster]]] [\begin{avm}{\@3}PP\end{avm} [P [in]] [NP [Loch Ness]]]]
+\end{forest} \end{turn} }
+\section{Chapter 13, Problem 6}
+\subsection{Does our grammar predict examples i-iv?}
+All examples are correctly licensed by our grammar. All of the sentences are licensed because the auxiliary verb that happens before not can go through the Ellispsis Lexical rule in order to output a dervv-lxm that has a AGR-ST list with everything except the first element removed. This then goes through the 3rd singular verb lexical rule to license a word structure and finally the finite auxiliary verb word structure goes through ADVpol-Additional Lexical rule. \\  i) Initially our grammar would start off by licensing a phrase like 'We wanted to taste the salad'. Using the Ellipsis Lexical rule, followed Inversion Lexical rule to become 'We wanted to taste the salad, and could' This would then be negated to become our target 'We wanted to taste the salad, but we could not'. \\
+ii) Initial licensed phrase 'They were asked to help the cook' becomes 'They were asked to help the cook, and they did' via the Ellipsis Lexical rule, followed by  Inversion Lexical rule which then following the Negation Lexical rule allows licensing of 'They were asked to help the cook, but they did not. \\
+iii) Initially our grammar would licence 'You thought you were cleaning the table' which via the Ellipsis Lexical rule, followed by  Inversion Lexical rule would licence 'You thought you were clearing the table, and you were' which via the Negation Lexical rule would license the target 'You thought you were clearing the table, but you were not'.. \\
+iv) Initially the grammar would license 'We thought they had arrived' and then via the the Ellipsis Lexical rule, followed by  Inversion Lexical rule it could license 'We thought that they had arrived, and they had' which then via the negation lexeme we license the target 'We thought that they had arrived, but they had not'.
+\subsection{Does our grammar predict examples v-vi?}
+Yes. Much like the previous section our grammar can build an incremental licensing of the phrasal evolution. Sentences are licensed because the lexical entries for will and were go through Ellispsis lexical rule, followed by Non3rd-Singular Verb Lexical rule and finally the Inversion Lexical rule.  \\ For v), initially grammar would license 'Kim said they will become famous'. After using the Ellipsis Lexical rule our grammar can support 'Kim said they will be famous, they will'. Then following the Inversion lexical rule we can license the target 'Kim said they will become famous. Will they? \\ For vi) Initially our grammar will license 'You thought you were helping them out'. Via the Ellipsis Rule our grammar can also license 'You thought you were helping them out. You were' which if we were to then use the inversion rule would allow us to license the target 'You thought you were helping them out. Were you?
+\end{document}

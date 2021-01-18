@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots,multicol}
+\usepackage{tikz-qtree}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{avm}
+\usepackage{rtrees}
+\usepackage{forest}
+\useforestlibrary{linguistics}
+\newcommand{\comment}[1]{}
+\newcommand{\myavm}[5]{
+    \begin{avm}
+        \ifboolexpr{
+            test{\ifstrempty{#2}}
+            and
+            test{\ifstrempty{#3}}
+            and
+            test{\ifstrempty{#4}}
+            and
+            test{\ifstrempty{#5}}
+        }
+        {#1}
+        {
+            \avml
+            \hfil #1 \hfil \\
+            \[
+                \ifstrempty{#2}{}{SPR       & \< #2 \> \\}
+                \ifstrempty{#3}{}{COMPS     & \< #3 \> \\}
+                \ifstrempty{#4}{}{GAP       & \< #4 \> \\}
+                \ifstrempty{#5}{}{STOP-GAP  & \< #5 \> \\}
+            \]
+            \avmr
+        }
+    \end{avm}
+}
+\forestapplylibrarydefaults{linguistics}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = red, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+\pgfplotsset{compat=newest} 
+\mathchardef\period=\mathcode`.
+\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+\newcommand{\textarray}[1]{\ensuremath{\left[ \mbox{\ttfamily\begin{tabular}{l} #1 \end{tabular}}\right]}}
+\begin{document}
+\title{566 Final}
+\author{Daniel Campos  \tt {dacampos@uw.edu}}
+\date{12/12/2019}
+\maketitle 
+\section{Problem 1}
+That song, people believe Mozart wrote but found to be hard to play.
+\subsection{Tree}
+\scalebox{.65}{
+\begin{forest}
+[ \myavm{S}{}{}{}{} [ \myavm{{\@1}$NP_i$}{}{}{}{} [ \myavm{{\@8}DP}{}{}{}{} [That ] ] [ \myavm{NOM}{{\@8}}{}{}{} [song]]]  [ \myavm{S}{{\@1}}{}{{\@1},{\@6}}{{\@1},{\@6}} [\myavm{VP}{{\@1}}{}{{\@1},{\@6}}{} [\myavm{{\@6}NP}{}{{\@b},{\@3}}{}{} [people]] [\myavm{VP}{{\@6},{\@1}}{}{{\@1}}{} [\myavm{V}{{\@1}}{{\@5}}{{\@1}}{} [believe]] [\myavm{{\@5}VP}{{\@1}}{}{{\@1}}{} [\myavm{{\@2}NP}{}{}{}{} [Mozart]] [\myavm{V}{\@2}{}{}{{\@1}}{}  [wrote]]]]] [\myavm{CONJ}{}{}{}{} [but]]  [\myavm{VP}{{\@1}}{}{{\@1}, {\@6}}{} [\myavm{{\@b}V}{}{{\@7}}{{\@6}}{} [found]] [\myavm{{\@7}VP}{}{}{{\@1}}{} [\myavm{V}{{\@1}}{{\@a}}{}{} [to]] [\myavm{{\@a}VP}{{\@1}}{}{{\@1}}{} [\myavm{V}{{\@1}}{{\@9}}{}{} [be]] [\myavm{{\@9}AP}{{\@1}}{}{{\@1}}{} [\myavm{ADJ}{}{{\@4}}{}{{\@1}} [hard]] [\myavm{{\@4}VP}{}{}{{\@1}$NP_i$}{} [\myavm{V}{}{{\@3}}{}{} [to]] [\myavm{{\@3}VP}{}{}{{\@1}}{} [\myavm{V}{}{}{{\@1}}{}[play]]]]]]]]]]
+\end{forest} }
+\subsection{Identity Cascades}
+To save space I will use the following abbreviations:
+Head Compliment Rule(HCR), Head Specifier Rule(HSR), Semantic Inheritance Principle(SIP), Argument Realization principle(ARP), Valence Principle(ValP), Head Filler Rule(HFR), Coordination Rule (CR) \\
+\scalebox{.9}{
+\begin{footnotesize}
+\begin{tabular}{|l|lll|}
+    \hline
+    i & Grammar entity & First member & Second member \\ \hline
+    1 & lex entry for {\it song} & Index value of N Song & INST value of the {\it song} predication \\ \hline
+    2 & lex entry for {\it song} & Index of its SPR \begin{avm}{\@8}\end{avm} & Index value of DP {\it that} \\ \hline
+    3 & HSR & the Det of {\it that} & the NOM  of {\it song} \\ \hline
+    4 & ARP & First element AGR-ST list of NOM{\it song} & sole element on the COMPS list of the nom {\it song} \\ \hline
+    5 & SIP & Index of DP {\it that} & Index of NP {\it That song} \\ \hline
+    6 & HFR & The GAP value of VP & The NP {\it that song} \\ && {\it people believe Mozart wrote} \\ && {\it but found to be hard to play} \\ \hline
+    7 & HSR & NP {\it That song} & the specifier of VP \\ & & & {\it people believe Mozart wrote}\\ &&& {\it but found to be hard to play} \\ \hline
+    8 & ARP & Second element of the ARG-ST of & sole element of the SPR list of the VP \\ & & VP{\it people believe Mozart wrote} & {\it people believe Mozart wrote } \\ &&{\it but found to be hard to play} & {\it but found to be hard to play} \\ \hline
+    9 & CR & GAP value of {\it people believe Mozart wrote } & {\it found to be hard to play} \\ \hline
+    10 & VP & specifier requirement of VP & specifier requirement of \\ && {\it people believe Mozart wrote} & {\it found to be hard to play} \\ && {\it but found to be hard to play} & \\ \hline
+    11 & ARP & First element of the AGR-ST of VP & specifier of VP {\it found to be hard to play}\\ && {\it found to be hard to play} & \\ \hline
+    12 & ValP & specifier requirement  of & specifier requirement of V {\it found} \\ && VP {\it found to be hard to play} & \\ \hline
+    13 & ARP & first element of AGR-ST of V {\it found} & sole element of COMPS list of V {\it found} \\ \hline
+    14 & HCR & only comps requirement of V {\it found} & VP {\it to be hard to play} \\ \hline
+    15 & ValP & specifier requirement of {\it to be hard to play} & specifier requirement of {\it to} \\ \hline
+    16 & ARP & first element of AGR-ST of V {\it to} & sole element of COMPS of V {\it to} \\ \hline 
+    17 & HCR & only comps requirement of V {\it to} & VP {\it be hard to play} \\ \hline 
+    18 & ValP & specifier requirement of V {\it be} & specifier requirement of VP {\it be hard to play} \\ \hline
+    19 & ARP & first element of AGR-ST of V {\it be} & sole element of COMPS of V {\it be} \\ \hline
+    20 & HCR & only comps requirement of V {\it be} & AP {\it hard to play} \\ \hline
+    21 & ValP & specifier requirement of A {\it hard} & specifier requirement of AP {\it hard to play} \\ \hline
+    22 & ARP & first element of AGR-ST of A {\it hard} & sole element of COMPS of A {\it hard} \\ \hline
+    23 & HCR & only comps requirement of A {\it hard} & VP {\it to play} \\ \hline
+    24 & SIP & index of V {\it to} & index of  VP {\it to play} \\ \hline
+    25 & ARP & first element of AGR-ST of V {\it to} & sole element of COMPS of V {\it to} \\ \hline
+    26 & HCR & only comps requirement of V {\it to} & VP {\it play} \\ \hline
+    27 & SIP & Index of VP {\it play} & Index of V {\it play} \\ \hline
+    28 & ARP & Second element of AGR-ST list of V & element of comps list of V {\it play} \\ \hline
+    29 & HFR & sole element of GAP list of V {\it play} & second element of AGR-ST of V {\it play} \\ \hline
+    30 & lex ent: & INDEX of the 2nd item on the ARG-ST & PLAYED role in the {\bf play}\\ &
+{\it play} & of the V {\it play} & predication of the V {\it play}\\ \hline
+\end{tabular}
+\end{footnotesize}}
+\section{Problem 2}
+Chris wanted it to be appreciated that Sandy's idea shouldn't be stolen. 
+\subsection{Lexical rules}
+Chris: Constant Lexeme Lexical Rule\\
+wanted: Past-Tense Verb Lexical Rule, Constant Lexeme Lexical Rule \\
+it: Constant Lexeme Lexical Rule\\ 
+to: Base Form Lexical Rule \\ 
+be: Base Form Lexical Rule\\ 
+appreciated: Past Participle Lexical Rule ,Constant Lexeme Lexical Rule  \\ 
+that: Constant Lexeme Lexical Rule \\ 
+Sandy's: Constant Lexeme Lexical Rule, Subject Extraction Lexical Rule\\
+ideas: Plural Noun Lexical Rule\\
+shouldn't: Base form lexical rule  , contraction lexical rule\\ 
+be: Base Form Lexical Rule \\ 
+stolen: Past Participle Lexical Rule, Constant Lexeme Lexical Rule
+\subsection{Word Structure for shouldn't}
+\begin{avm}
+\< shouldn't , \[{\it word} \\SYN & \[ HEAD & \[{\it verb} \\ FORM & {\it fin} \\ AUX & +\\ PO & -\] \\ VAL & \[SPR & \< \avml {\@1}X\avmr \>  \\ COMPS & \< \avml \hfil \avmr \> \] \]  \\ SEM & \[MODE & {\it prop} \\ INDEX & s_3 \\ RESTR & \< \avml \[RELN & not \\ SIT & s_3 \\ ARG & s_2 \] \avmr \> \oplus \< \avml \[RELN & should \\ SIT & s_2 \\ ARG & s_1 {\@2} \] \avmr \>  \] \\ ARG-ST & \< \avml {\@1} , {\@2}\[SYN & \[HEAD & \[FORM & base\] \] \\ SEM & \[INDEX & s_1}\] \]  \avmr \> \] \>
+\end{avm}
+\subsection{Analysis of grammar}
+Since neither of the two referenced ungrammatical sentences include be, both sentences are trying to combine present verbs(to, do) with a past-participle verb (appreciated). Without the be, the lexicacal forms of both to and do can only license sentences which have verbs preceding to or do which have PRED - which since appreciated is PRED + sentences won't be licensed as grammatical by the grammar. 
+\end{document}

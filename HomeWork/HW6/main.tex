@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots,multicol}
+\usepackage{tikz-qtree}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{avm}
+\usepackage{rtrees}
+\usepackage{forest}
+\useforestlibrary{linguistics}
+\usepackage{rotating, graphicx}
+\newcommand{\comment}[1]{}
+\forestapplylibrarydefaults{linguistics}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = red, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+\pgfplotsset{compat=newest} 
+\mathchardef\period=\mathcode`.
+\newcommand{\textarray}[1]{\ensuremath{\left[ \mbox{\ttfamily\begin{tabular}{l} #1 \end{tabular}}\right]}}
+\begin{document}
+\title{566 HW6}
+\author{Daniel Campos  \tt {dacampos@uw.edu}}
+\date{11/15/2019}
+\maketitle 
+\section{Chapter 11, Problem 3}
+\subsection{RESTR of: That Dana is smoking annoys Leslie}
+\begin{avm}RESTR & \< \avml \[RELN & {\it annoy} \\ SIT & {\it s1} \\ANNOYANCE & {\it s2}\\ANNOYED & {\it j}\], \[RELN & {\it name} \\ NAME & {\it Dana} \\ NAMED & {\it i}  \], \[RELN & {\it name} \\ NAME & {\it Leslie} \\ NAMED & {\it j} \],  \[RELN & {\it smoke} \\ SIT & {\it s2} \\ SMOKER & {\it i} \] \avmr \>\end{avm}
+\subsection{Tree}
+\scalebox{1}{
+\begin{turn}{0}
+\begin{forest}
+[S_{s1} [CP_{s2} [C_{s2} [That] ] [S_{s2} [NP_i [Dana] ] [VP_{s2} [V [is] ] [V_{s2} [smoking] ] ] ] ] [VP_{s1} [V_{s1} [annoys]] [NP_j [Leslie] ] ] ] ]
+\end{forest} \end{turn} }
+\subsection{Explain SIT value of smoke predication gets identified with annoyance value of the annoy}
+1. The lexical entry for annoy identifies the annoyance role of the annoy predication on its RESTR list with the INDEX value of first element on its ARG-ST list. \\
+2. The lexical entry for smoke identifies the SIT value of the smoke predication in its RESTR list with its own index, {\it s2}.\\
+3. The Argument Realization Principle(ARP) (together with the SHAC) identifies the first element of the ARG-ST list of annoy with its SPR value.\\
+4. Via the Head Specifier Rule(HSR) and the Head Feature Principle(HFP) the SPR of is $VP_{s1}$ identified with the SPR of $V_{s1}$.\\
+5. The HSR identifies $CP_{s2}$ as the SPR of $VP_{s1}$.\\
+6. The Semantic Inheritance Principle(SIP) identifies the index of the mother $VP_{s2}$ element that licenses {\it is smoking} with the index of its head daughter $V_{s2}$. \\
+7. $S_{s2}$, via the SIP and the HSR, identifies its index with that of the head daughter of $VP_{s2}$. \\
+8. The HCR identifies $S_{s2}$ as the only element in COMPS list for the complimentizer that licenses {\it that}. \\
+9. The constraint on the type {\it comp-lxm}, which {\it that} is a sub type of, identifies its index with the index of the sole element in its AGR-ST, which is a $S_{s2}$ node. \\
+10. THE ARP identifies the S node in the AGR-ST list with the sole element in its COMPS list, $S_{s2}$. \\
+11. Via the HCR and the SIP the CP that licences {\it That Dana is smoking} identifies its index with that of its head daughter which also makes its index {\it s2}. Thus the sit value of smoke, {\it s2} get identified with the annoyance value of annoy.
+\section{Chapter 11, Problem 4}
+\subsection{constraints imposed on lexical sequences from 3rd-sing verb lexical verb}
+\begin{avm} \< \avml annoys , \[{\it 3sing-stv-lxm} \\SYN & \[HEAD & \[FORM & {\it fin}\\AGR & {\@2}{\it 3sing}  \\PRED & -\] \\ VAL & \[ SPR & \< \avml {\@3} \avmr \> \\ COMPS \< \avml {\@4} \avmr \> \\ MOD & \< \avml \avmr \>\] \] \\ARG-ST & \< \avml {\@3}\[SYN & \[HEAD & \[AGR & {\@2} \\ CASE & {\it nom} \] \] \\ SEM & \[INDEX & {\@1} \] \], {\@4}{NP}_i\avmr \> \\SEM & \[INDEX & {\it s} \\MODE & {\it prop} \\ RESTR & \< \avml \[RELN & {\it annoy} \\ SIT & s \\ANNOYANCE & {\@1} \\ ANNOYED & {\it i}  \]  \avmr \> \oplus \hfil ... \] \]\avmr \> \end{avm}
+\subsection{Constraints imposed by applying Extraposition Lexical Rule to answer in A}
+\begin{avm} \< \avml annoys , \[{\it 3sing-stv-lxm} \\SYN & \[HEAD & \[FORM & {\it fin}\\AGR & {\@2}{\it 3sing}  \\PRED & -\] \\ VAL & \[ SPR & \< \avml {\@5}NP \[FORM & {\it it} \] \avmr \> \\ COMPS \< \avml {\@4}, {\@3} \avmr \> \\ MOD & \< \avml \avmr \>\] \] \\ARG-ST & \< \avml {\@5,  {\@4}{NP}_i,{\@3}\[SYN & \[HEAD & \[AGR & {\@2} \\ CASE & {\it nom} \] \] \\ SEM & \[INDEX & {\@1} \] \],\avmr \> \\SEM & \[INDEX & {\it s} \\MODE & {\it prop} \\ RESTR & \< \avml \[RELN & {\it annoy} \\ SIT & s \\ANNOYANCE & {\@1} \\ ANNOYED & {\it i}  \]  \avmr \> \oplus \hfil ... \] \]\avmr \> \end{avm}
+\subsection{Tree for:It annoys Lee that Fido barks } 
+Rotated and scaled for ease of reading. \\ 
+\\
+\scalebox{.5}{
+\begin{turn}{90}
+\begin{forest}
+[S  \\ \begin{avm} \[SEM & \[INDEX & s1 \\MODE & prop \\ REST & \< \avml \[RELN & {\it annoy} \\ SIT & {\it s1} \\ANNOYANCE & {\it s}\\ANNOYED & {\it j}\]  \[RELN & name \\ NAME & Lee \\ NAMED & j \]  \[RELN & bark \\ SIT & S \\ BARKER & i\]  \[RELN & name \\ NAME & Fido \\ NAMED & i \]   \avmr \> \] \]\end{avm}[NP  \\ \begin{avm}{\@1} \[SYN & \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS & \< \avml  \avmr \> \] \] \\ SEM & \[MODE & non \\ REST & \< \avml  \avmr \> \] \]\end{avm} [It] ] [VP  \\ \begin{avm} \[SYN & \[VAL & \[SPR & \< \avml {\@1} \avmr \> \\ COMPS & \< \avml  \avmr \> \] \] \\ SEM & \[INDEX & s1 \\MODE & prop \\ REST & \< \avml \[RELN & {\it annoy} \\ SIT & {\it s1} \\ANNOYANCE & {\it s}\\ANNOYED & {\it j}\] \[RELN & name \\ NAME & Lee \\ NAMED & j \] \[RELN & bark \\ SIT & S \\ BARKER & i\]  \[RELN & name \\ NAME & Fido \\ NAMED & i \]  \avmr \> \] \]\end{avm} [V \\ \begin{avm} \[SYN & \[VAL & \[SPR & \< \avml {\@1} \avmr \> \\ COMPS & \< \avml {\@2} {\@3}  \avmr \> \] \] \\ SEM & \[INDEX & s1 \\MODE & prop \\ REST & \< \avml \[RELN & {\it annoy} \\ SIT & {\it s1} \\ANNOYANCE & {\it s}\\ANNOYED & {\it j}\]  \avmr \> \] \]\end{avm} [annoys] ] [NP \\ \begin{avm} {\@2} \[SYN & \[VAL & \[SPR & \< \avml\avmr \> \\ COMPS & \< \avml  \avmr \> \] \] \\ SEM & \[INDEX & j \\MODE & ref \\ REST & \< \avml \[RELN & name \\ NAME & Lee \\ NAMED & j \] \avmr \> \] \]\end{avm}  [Lee] ] [CP \\ \begin{avm} {\@3} \[SYN & \[VAL & \[SPR & \< \avml  \avmr \> \\ COMPS & \< \avml  \avmr \> \] \] \\ SEM & \[INDEX & s \\MODE & prop \\ REST & \< \avml  \avmr \> \] \]\end{avm} [C \\ \begin{avm} \[SYN & \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS & \< \avml {\@4}  \avmr \> \] \] \\ SEM & \[INDEX & s \\MODE & prop \\ REST & \< \avml    \avmr \> \] \]\end{avm} [that] ] [S \\ \begin{avm} {\@4} \[SYN & \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS & \< \avml  \avmr \> \] \] \\ SEM & \[INDEX & s \\MODE & prop \\ REST & \< \avml \[RELN & bark \\ SIT & S \\ BARKER & i\]  \[RELN & name \\ NAME & Fido \\ NAMED & i \] \avmr \> \] \]\end{avm} [NP \\ \begin{avm} {\@5}\[SYN & \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS & \< \avml  \avmr \> \] \] \\ SEM & \[INDEX & \[RELN & bark \\ SIT & S \\ BARKER & i\] \\MODE & ref \\ REST & \< \avml \[RELN & name \\ NAME & Fido \\ NAMED & i \] \avmr \> \] \]\end{avm} [Fido] ][VP \\ \begin{avm} \[SYN & \[VAL & \[SPR & \< \avml {\@5} \avmr \> \\ COMPS & \< \avml  \avmr \> \] \] \\ SEM & \[INDEX & s \\MODE & prop \\ REST & \< \avml \[RELN & bark \\ SIT & S \\ BARKER & i\]  \avmr \> \] \]\end{avm} [barks] ] ] ] ] ]
+\end{forest} \end{turn} }
+\subsection{Why doesn't grammar license: It annoys me Sandy.}
+The grammar licences iii and not iv because the Extraposition Lexical Rule requires that the input word feature have a SPR value that is a CP. In {\it it annoys me sandy} the sentence includes a dummy NP[FORM it] at the beginning but the structure following annoys is a NP instead of the expected CP. 
+\section{Chapter 11, Problem 7}
+i) It was assumed that the ad worked.
+\subsection{Lexical Entry assume}
+\begin{avm} \< \avml  assume , \[{\it stv-lxm}  \\SYN & \[HEAD & \[{\it verb} \\ AGR & {\@1} \]\] \\VAL & \[SPR & \< \avml \[AGR & {\@1}\]  \avmr \> \] \\ ARG-ST & \< \avml NP_j, X_i \avmr \> \\SEM & \[INDEX & {\it s} \\RESTR & \< \avml \[RELN & {\it assume} \\ SIT & s \\ASSUMER & {\it j} \\ ASSUMPTION & {\it i}  \]  \avmr \>\] \]\avmr \>\end{avm}
+\subsection{What rules and what order must they be applied to make assume become passivized and extraposed.}
+ Passive,Constant Lexeme,Extraposition Lexical Rule in that order. This is our order because Extraposition Lexical rule needs an input word, Passive and Constant needs a lexeme an and Constant makes a word. Any other order and it wouldnt work. 
+\subsection{Output value of each of the lexical rules}
+ Input is (1), output of Passive is (2), Output of Constant Lexeme is (3), Output of Extraposition Lexical Rule is (4)
+\begin{equation}
+\begin{avm} \< \avml  assume , \[{\it stv-lxm}  \\SYN & \[HEAD & \[{\it verb} \\ AGR & {\@1} \]\] \\VAL & \[SPR & \< \avml \[AGR & {\@1}\]  \avmr \> \] \\ ARG-ST & \< \avml NP_j, X_i \avmr \> \\SEM & \[INDEX & {\it s} \\RESTR & \< \avml \[RELN & {\it assume} \\ SIT & s \\ASSUMER & {\it j} \\ ASSUMPTION & {\it i}  \]  \avmr \>\] \]\avmr \>\end{avm}
+\end{equation}
+\begin{equation}
+\begin{avm} \< \avml  assumed , \[{\it part-lxm}  \\SYN & \[HEAD & \[{\it verb} \\ AGR & {\@1} \\ FORM & {\it pass} \]\] \\VAL & \[SPR & \< \avml \[AGR & {\@1}\]  \avmr \> \] \\ ARG-ST & \< \avml X_i, (\[PP \\ FORM & by \\ INDEX & j \])\avmr \> \\SEM & \[INDEX & {\it s} \\RESTR & \< \avml \[RELN & {\it assume} \\ SIT & s \\ASSUMER & {\it j} \\ ASSUMPTION & {\it i}  \]  \avmr \>\] \]\avmr \>\end{avm}
+\end{equation}
+\begin{equation}
+\begin{avm} \< \avml  assumed , \[{\it word}  \\SYN & \[HEAD & \[{\it verb} \\ AGR & {\@1} \\ FORM & {\it pass} \]\] \\VAL & \[SPR & \< \avml {\@2}\[AGR & {\@1}\]  \avmr \> \\ COMPS & \< \avml {\@B} \avmr \> \] \\ ARG-ST & \< \avml {\@2}X_i \avmr \> \oplus {\@B}\< \avml (\[PP \\ FORM & by \\ INDEX & j \])\avmr \> \\SEM & \[INDEX & {\it s} \\RESTR & \< \avml \[RELN & {\it assume} \\ SIT & s \\ASSUMER & {\it j} \\ ASSUMPTION & {\it i}  \]  \avmr \>\] \]\avmr \>\end{avm}
+\end{equation}
+\begin{equation}
+\begin{avm} \< \avml  assumed , \[{\it word}  \\SYN & \[HEAD & \[{\it verb} \\ AGR & {\@1} \\ FORM & {\it pass} \]\] \\VAL & \[SPR & \< \avml {\@2}NP\[FORM & it\]  \avmr \> \\ COMPS & {\@B}\] \\ ARG-ST & \< \avml{\@2} \avmr \> \oplus {\@B}\< \avml (\[PP \\ FORM & by \\ INDEX & j \])  CP_i \[AGR & {\@1}\]\avmr \> \\SEM & \[INDEX & {\it s} \\RESTR & \< \avml \[RELN & {\it assume} \\ SIT & s \\ASSUMER & {\it j} \\ ASSUMPTION & {\it i}  \]  \avmr \>\] \]\avmr \>\end{avm}
+\end{equation}
+\subsection{Tree value for i.}
+\scalebox{.6}{
+\begin{turn}{0}
+\begin{forest}
+[S \\ \begin{avm} \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [NP \\ \begin{avm} {\@1} \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [It]] [VP \\ \begin{avm} \[VAL & \[SPR & \< \avml {\@1} \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [V \\ \begin{avm} \[VAL & \[SPR & \< \avml {\@1} \avmr \> \\ COMPS \< \avml {\@2}   \avmr \> \] \] \end{avm} [was]] [VP \begin{avm}{\@2} \end{avm} [V \\ \begin{avm} \[VAL & \[SPR & \< \avml {\@1} \avmr \> \\ COMPS \< \avml {\@3} \avmr \> \] \] \end{avm} [assumed]] [CP \\ \begin{avm} {\@3} \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [C \\ \begin{avm} \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS \< \avml {\@4} \avmr \> \] \] \end{avm} [that]] [S \\ \begin{avm} {\@4}\[VAL & \[SPR & \< \avml \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [NP \\ \begin{avm} {\@5} \[VAL & \[SPR & \< \avml \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [D \\ \begin{avm} {\@6}\[VAL & \[SPR & \< \avml \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [the]][NP \\ \begin{avm} \[VAL & \[SPR & \< \avml {\@6} \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [ad]]] [VP \\ \begin{avm} \[VAL & \[SPR & \< \avml {\@5} \avmr \> \\ COMPS \< \avml  \avmr \> \] \] \end{avm} [worked]]]]]]]
+\end{forest} \end{turn} }
+\section{Chapter 12, Problem 1}
+\subsection{Tend}
+Tend is a raising verb. \\
+i) Yes. \\ There Tends to be problems\\. *There tends to problems.\\
+ii) Yes. \\  It tends to rain. \\ *It tends to be rain.\\
+iii) Yes. \\ Tabs tended to be kept on Chris.\\ Tabs were kept on Chris. \\
+iv) Yes. \\ She tended to talk to Chris. \\Chris tended to be talked to by her.
+\subsection{Decide}
+Decide is a control verb. \\
+i) No. \\  *There decided to be problems. \\
+ii) No. \\  *it decided to rain. \\
+iii) No. \\  *Tabs were decide to be kept on Chris. \\
+iv) No. \\  She decided to talk to Chris.\\ *Chris was decided to be talked to by her. \\
+\subsection{Manage}
+Manage is a raising verb.\\
+i) Yes. \\ There manage to be problems. *There manage to problems \\
+ii) Yes. \\ It managed to rain. \\ *It managed to be rain. \\
+iii) Yes. \\ Tabs were managed to be kept on Chris. \\ *Tabs were managed to be sought on Chris. \\
+iv) Yes. \\ She managed to talk to Chris. \\ Chris was managed to be talked to by her. \\ This last one gave me a pause but then I actually heard two people talk like this during my work week referring to time allowed Chris to be talked to by her. 
+\subsection{Fail}
+Fail is a raising verb. \\
+i) Yes. \\ There fails to be problems. *There fails to problems. \\
+ii) Yes. \\ It fails to rain.\\ *It fails to be rain. \\
+iii) Yes. \\ Tabs failed to be kept on Chris. \\ *Tabs failed to be sought on Chris. \\
+iv) Yes. \\ Chris failed the test. The test was failed by Chris. \\
+\subsection{Happen}
+Happen is a raising verb. \\
+i) Yes. \\ There happens to be problems.\\ * There happens to problems. \\
+ii) Yes. \\ It happens to rain. \\ *It happens to be rain. \\
+iii) Yes. \\ Tabs happen to be kept on Chris. \\ *Tabs happen to sought on Chris. \\
+iv) Yes. \\ She happened to talk to Chris. \\ Chris happened to be talked to by her. 
+\end{document}
